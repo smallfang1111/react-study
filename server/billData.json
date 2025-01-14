@@ -1,0 +1,53 @@
+{
+    "billList": [
+        {
+            "type": "pay",
+            "money": -99,
+            "date": "2022-10-24 10:30:12",
+            "useFor": "drinks",
+            "id": 1
+        },
+        {
+            "type": "income",
+            "money": 13000,
+            "date": "2022-10-24 10:30:12",
+            "useFor": "salary",
+            "id": 2
+        },
+        {
+            "type": "pay",
+            "money": -88,
+            "date": "2022-10-24 10:30:12",
+            "useFor": "longDistance",
+            "id": 3
+        },
+        {
+            "type": "income",
+            "money": 100000,
+            "date": "2022-11-24 10:30:12",
+            "useFor": "salary",
+            "id": 4
+        },
+        {
+            "type": "pay",
+            "money": -88,
+            "date": "2022-11-24 10:30:12",
+            "useFor": "longDistance",
+            "id": 5
+        },
+        {
+            "type": "pay",
+            "money": -88,
+            "date": "2022-12-24 10:30:12",
+            "useFor": "longDistance",
+            "id": 6
+        },
+        {
+            "type": "income",
+            "money": 14000,
+            "date": "2022-12-24 10:30:12",
+            "useFor": "salary",
+            "id": 7
+        }
+    ]
+}
