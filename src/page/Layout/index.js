@@ -13,7 +13,7 @@ import './index.scss'
 const tabs = [
     {
         key: '/',
-        title: '月度账单',
+        title: '月度账1单',
         icon: <BillOutline />
     },
     {
