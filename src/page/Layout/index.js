@@ -38,14 +38,12 @@ const Layout = () => {
     }
     return (
         <>
-            {/* <Link to='/' >关于</Link>
-    <Link to='/board' >面板</Link> */}
             <div className='layout'>
                 <div className='container'>
-           
                     {/* 配置二级路由的出口 */}
                     <Outlet />
                 </div>
+                
                 <div className='footer'>
                     <TabBar onChange={value => setRouteActive(value)}>
                         {tabs.map(item => (

@@ -17,7 +17,7 @@
     }
   
     .content {
-      height: 573px;
+      height: calc(100% - 50px);
       padding: 0 10px;
       overflow-y: scroll;
       -ms-overflow-style: none; /* Internet Explorer 10+ */

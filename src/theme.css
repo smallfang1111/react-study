@@ -1,3 +1,8 @@
 :root:root{
     --adm-color-primary:rgb(105,174,120);
 }
+/* https://mobile.ant.design/zh/guide/theming 可通过这篇文档详细查看如何配置主题色 */
+
+/* .purple-theme{
+    --adm-color-primary:#333
+  } */
