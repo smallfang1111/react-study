@@ -1,27 +1,31 @@
 
 import classNames from 'classnames'
 import './index.scss'
+import { billTypeToName } from '@/contants'
 
-import {  useMemo } from 'react'
+import { useMemo, useState } from 'react'
 // 接收父组件传过来的数据
-const DailyBill = ({date,billList}) => {
-const dayResult = useMemo(() => {
-    // 支出  // 收入  // 结余
-    let pay = 0, income = 0, total = 0 // 设置初始值
-    if (billList) {
-        pay = billList.filter(i => i.type === 'pay').reduce((a, c) => a + c.money, 0)
-        income = billList.filter(i => i.type === 'income').reduce((a, c) => a + c.money, 0)
-        return { pay, income, total: income + pay }
-    }
-    return { pay, income, total }
-    // billList 的值来计算选择的月份的支出，收入，结余
-}, [billList])
+const DailyBill = ({ date, billList, index }) => {
+    const dayResult = useMemo(() => {
+        // 支出  // 收入  // 结余
+        let pay = 0, income = 0, total = 0 // 设置初始值
+        if (billList && billList.length) {
+            pay = billList.filter(i => i.type === 'pay').reduce((a, c) => a + c.money, 0)
+            income = billList.filter(i => i.type === 'income').reduce((a, c) => a + c.money, 0)
+            return { pay, income, total: income + pay }
+        }
+        return { pay, income, total }
+        // billList 的值来计算选择的月份的支出，收入，结余
+    }, [billList])
+
+    // 控制展开收起
+    const [visible, setVisible] = useState(false)
     return (
         <div className="dailyBill">
             <div className="header">
                 <div className="dateIcon">
                     <span className="date">{date}</span>
-                    <span className="arrow"></span>
+                    <span className={classNames('arrow', visible && 'expand')} onClick={() => setVisible(!visible)}></span>
                 </div>
                 <div className="oneLineOverview">
                     <div className="pay">
@@ -39,21 +43,22 @@ const dayResult = useMemo(() => {
                 </div>
             </div>
 
-           {/* 单日列表 */}
-           <div className="billList">
-                {billList.map(item=>{
+            {/* 单日列表 */}
+            <div className="billList" style={{ display: visible ? 'block' : 'none' }}>
+                {billList.map(item => {
                     return (
                         <div className="bill" key={item.id}>
                             <div className="detail">
-                                <div className="billType">{item.useFor}</div>
+
+                                <div className="billType">{billTypeToName[item.useFor.toUpperCase()]} </div>
                             </div>
-                            <div className={classNames('money',item.type)}>
-                               {item.money?.toFixed(2)}
+                            <div className={classNames('money', item.type)}>
+                                {item.money?.toFixed(2)}
                             </div>
                         </div>
                     )
                 })}
-            </div> 
+            </div>
         </div>
     )
 }

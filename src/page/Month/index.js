@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import './index.scss'
 import { useSelector } from 'react-redux'
 import _ from 'lodash'
-import DailyBill from '@/page/Month/components/dailyBill'
+import DailyBill from '@/page/Month/components/DailyBill'
 
 // useMemo 在每次重新渲染的时候能够缓存计算的结果
 // useSelector 使得 React 组件可以从 Redux store 中读取数据
@@ -31,7 +31,7 @@ const Month = () => {
     const monthResult = useMemo(() => {
         // 支出  // 收入  // 结余
         let pay = 0, income = 0, total = 0 // 设置初始值
-        if (currentMonthList) {
+        if (currentMonthList&&currentMonthList.length) {
             pay = currentMonthList.filter(i => i.type === 'pay').reduce((a, c) => a + c.money, 0)
             income = currentMonthList.filter(i => i.type === 'income').reduce((a, c) => a + c.money, 0)
             return { pay, income, total: income + pay }
@@ -60,6 +60,8 @@ const Month = () => {
 
     // 当前月按照日来做分组
     const dayGroup = useMemo(() => {
+        // 做空判断
+        if(!currentMonthList?.length) return {}
         const monthList=currentMonthList.sort((a,b)=>a.date.localeCompare(b.date)) // 按照日期排序
         // return 出去计算之后的值
         const groupDate=_.groupBy(monthList, (item) => dayjs(item.date).format('YYYY-MM-DD'))
@@ -115,8 +117,9 @@ const Month = () => {
 
                     </div>
                     {/* 单日账单列表 */}
-                    {dayGroup.keys.map(key=>{
-                        return <DailyBill key={key} date={key} billList={dayGroup.groupDate[key]} />
+                    {dayGroup.keys?.map((key,index)=>{
+                     
+                        return <DailyBill key={key} index={index} date={key} billList={dayGroup.groupDate[key]} />
                     })}
                    
                 </div>
