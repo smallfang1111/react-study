@@ -54,7 +54,7 @@ const foodStore = createSlice({
 const { setFoodList, changeActiveIndex, addCart, inCount, deCount,clearCart } = foodStore.actions
 const fetchFoodList = () => {
     return async (dispatch) => {
-        const res = await axios.get('http://localhost:3004/takeaway')
+        const res = await axios.get('http://localhost:8888/takeaway')
         dispatch(setFoodList(res.data))
     }
 }

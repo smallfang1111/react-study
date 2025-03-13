@@ -14,7 +14,7 @@ export const billListData={
             name:'出行交通',
             list:[
                 {type:'taxi',name:'打车租车'},
-                {type:'longDistance',name:'旅行票费'}
+                {type:'activity',name:'旅行票费'}
             ]
         },
         {
@@ -74,5 +74,6 @@ export const billTypeToName=Object.keys(billListData).reduce((prev,key)=>{
             prev[item.type.toUpperCase()]=item.name
         })
     });
+    console.log(prev)
     return prev
 },{})

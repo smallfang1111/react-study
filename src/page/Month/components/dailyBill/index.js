@@ -4,6 +4,7 @@ import './index.scss'
 import { billTypeToName } from '@/contants'
 
 import { useMemo, useState } from 'react'
+// import Icon from '@/components/Icon'
 // 接收父组件传过来的数据
 const DailyBill = ({ date, billList, index }) => {
     const dayResult = useMemo(() => {
@@ -48,8 +49,10 @@ const DailyBill = ({ date, billList, index }) => {
                 {billList.map(item => {
                     return (
                         <div className="bill" key={item.id}>
+                            {/* 图标 */}
+                            {/* 根据不同的目的适配不同图标 */}
+                            <i className={classNames('iconfont', item.useFor === 'drinks' ? 'icon-Drinks' : item.useFor === 'salary' ? 'icon-salary' : item.useFor === 'activity' ? 'icon-activity' : 'icon-study')} />
                             <div className="detail">
-
                                 <div className="billType">{billTypeToName[item.useFor.toUpperCase()]} </div>
                             </div>
                             <div className={classNames('money', item.type)}>

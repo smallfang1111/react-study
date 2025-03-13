@@ -18,7 +18,7 @@
             "type": "pay",
             "money": -88,
             "date": "2022-10-24 10:30:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 3
         },
         {
@@ -32,14 +32,14 @@
             "type": "pay",
             "money": -88,
             "date": "2022-11-24 10:30:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 5
         },
         {
             "type": "pay",
             "money": -88,
             "date": "2022-12-24 10:30:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 6
         },
         {
@@ -53,14 +53,14 @@
             "type": "pay",
             "money": -14500,
             "date": "2022-12-24 10:30:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 8
         },
         {
             "type": "pay",
             "money": -88,
             "date": "2025-03-07 10:30:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 9
         },
         {
@@ -74,14 +74,14 @@
             "type": "pay",
             "money": -14500,
             "date": "2025-03-07 10:33:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 11
         },
         {
             "type": "pay",
             "money": -88,
             "date": "2025-03-02 10:30:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 12
         },
         {
@@ -95,7 +95,7 @@
             "type": "pay",
             "money": -14500,
             "date": "2025-03-04 10:33:12",
-            "useFor": "longDistance",
+            "useFor": "activity",
             "id": 14
         }
     ]
