@@ -9,10 +9,15 @@ const billStore = createSlice({
     name: 'bill',
     // 数据状态 state
     initialState,
-    // 同步修改方法
     reducers: {
+        // 同步修改方法
         setBillList(state, action) {
+            console.log(state,action)
             state.billList = action.payload
+        },
+        // 同步添加账单方法
+        addBill(state,action){
+            state.billList.push(action.payload)
         }
     }
 })
@@ -26,6 +31,15 @@ export const getBillList = () => {
     }
 }
 
+export const addBillList=(data)=>{
+    return async (dispatch) => {
+        // 使用了json-server的post 请求 set数据
+        const res = await axios.post(' http://localhost:8888/billList',data)
+        dispatch(addBill(res.data))
+    }
 
-export const { setBillList } = billStore.actions
+}
+
+
+export const { setBillList,addBill } = billStore.actions
 export default billStore.reducer

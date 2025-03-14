@@ -74,6 +74,5 @@ export const billTypeToName=Object.keys(billListData).reduce((prev,key)=>{
             prev[item.type.toUpperCase()]=item.name
         })
     });
-    console.log(prev)
     return prev
 },{})
