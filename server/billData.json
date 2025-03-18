@@ -139,6 +139,20 @@
       "date": "2025-02-14",
       "useFor": "financial",
       "id": 20
+    },
+    {
+      "type": "pay",
+      "money": -1,
+      "date": "2025-03-17",
+      "useFor": "",
+      "id": 22
+    },
+    {
+      "type": "pay",
+      "money": -2,
+      "date": "2025-03-17",
+      "useFor": "travel",
+      "id": 23
     }
   ]
 }

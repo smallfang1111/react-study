@@ -1,4 +1,4 @@
-import { Button, DatePicker, Input, NavBar } from "antd-mobile"
+import { Button, DatePicker, Input, NavBar, Toast } from "antd-mobile"
 import classNames from "classnames"
 import { useNavigate } from "react-router-dom"
 import dayjs from 'dayjs'
@@ -32,13 +32,25 @@ const New = () => {
     // 保存账单
     const saveBill = () => {
         // 收集表单数据
+        if (money === 0) {
+            Toast.show({
+                icon: 'fail',
+                content: '金额不能为0',
+            })
+            return
+        } else if (!useFor) {
+            Toast.show({
+                icon: 'fail',
+                content: '请选择收支类型',
+            })
+            return
+        }
         const data = {
             type: billType,
             money: billType === 'pay' ? -money : +money,
             date: selectDate,
             useFor: useFor
         }
-        console.log(data)
         dispatch(addBillList(data))
         navigate(-1)
     }
@@ -85,7 +97,7 @@ const New = () => {
                             <div className="list">
                                 {item.list.map((childItem) => {
                                     return (
-                                        <div className={classNames('item', useFor===childItem.type && 'selected')} onClick={() => setUseFor(childItem.type)} key={childItem.type}>
+                                        <div className={classNames('item', useFor === childItem.type && 'selected')} onClick={() => setUseFor(childItem.type)} key={childItem.type}>
                                             {/* <div className="icon"> </div> */}
                                             <i className={classNames('iconfont icon', childItem.type === 'drinks' ? 'icon-Drinks' : childItem.type === 'salary' ? 'icon-salary' : childItem.type === 'activity' ? 'icon-activity' : 'icon-study')} />
                                             <div className="text" > {childItem.name}</div>

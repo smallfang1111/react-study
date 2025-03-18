@@ -12,8 +12,8 @@ const router = createBrowserRouter([
             {
                 // 默认路由
                 index: true,
+                element: <Month />,
                 // path:'/month',
-                element: <Month />
             },
             {
                 path: '/year',

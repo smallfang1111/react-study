@@ -12,7 +12,6 @@ const billStore = createSlice({
     reducers: {
         // 同步修改方法
         setBillList(state, action) {
-            console.log(state,action)
             state.billList = action.payload
         },
         // 同步添加账单方法

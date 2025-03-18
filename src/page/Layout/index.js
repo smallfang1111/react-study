@@ -13,7 +13,7 @@ import './index.scss'
 const tabs = [
     {
         key: '/',
-        title: '月度账1单',
+        title: '月度账单',
         icon: <BillOutline />
     },
     {
@@ -34,6 +34,7 @@ const Layout = () => {
     }, [dispatch])
     const navigate = useNavigate();
     const setRouteActive = (value) => {
+        console.log('进这里',value)
         navigate(value)
     }
     return (
