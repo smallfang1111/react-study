@@ -34,7 +34,6 @@ const Layout = () => {
     }, [dispatch])
     const navigate = useNavigate();
     const setRouteActive = (value) => {
-        console.log('进这里',value)
         navigate(value)
     }
     return (

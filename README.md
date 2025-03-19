@@ -16,3 +16,7 @@ npm run serve
 npm run start
 
 ```
+
+
+# 示例
+![Alt text](image.png)
