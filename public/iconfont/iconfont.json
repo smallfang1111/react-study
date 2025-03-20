@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "15982834",
+      "name": "国际版logo326反白-03-03",
+      "font_class": "guojibanlogo326fanbai-03-03",
+      "unicode": "eb8b",
+      "unicode_decimal": 60299
+    },
+    {
+      "icon_id": "34719071",
+      "name": "研究",
+      "font_class": "yanjiu",
+      "unicode": "e775",
+      "unicode_decimal": 59253
+    },
+    {
       "icon_id": "1814151",
       "name": "furniture",
       "font_class": "furniture",

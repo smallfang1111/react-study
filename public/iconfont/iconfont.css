@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4854204 */
-  src: url('iconfont.woff2?t=1741693498797') format('woff2'),
-       url('iconfont.woff?t=1741693498797') format('woff'),
-       url('iconfont.ttf?t=1741693498797') format('truetype');
+  src: url('iconfont.woff2?t=1742377121855') format('woff2'),
+       url('iconfont.woff?t=1742377121855') format('woff'),
+       url('iconfont.ttf?t=1742377121855') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-guojibanlogo326fanbai-03-03:before {
+  content: "\eb8b";
+}
+
+.icon-yanjiu:before {
+  content: "\e775";
 }
 
 .icon-furniture:before {
