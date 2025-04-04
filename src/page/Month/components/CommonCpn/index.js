@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 // import '../index.scss'
 import { useSelector } from 'react-redux'
 import _ from 'lodash'
-import DailyBill from '@/page/Month/components/DailyBill'
+import DailyBill from '../dailyBill'
 const CommonCpn = ({ type }) => {
     // 时间选择器是否显示
     const [dateSelectorVisible, setDateSelectorVisible] = useState(false)
@@ -21,11 +21,11 @@ const CommonCpn = ({ type }) => {
     // useMemo 类似 计算属性 这是一个按月分组的功能，为什么要按月分组，因为后端返回的数组是简单平铺的，不是按月划分好的，我们要做的功能是要以月为单位的统计
     const monthGroup = useMemo(() => {
         // return 出去计算之后的值
-        return _.groupBy(billList, (item) => dayjs(item.date).format(getType==='月'?'YYYY-MM':'YYYY'))
-    }, [billList,getType])
+        return _.groupBy(billList, (item) => dayjs(item.date).format(getType === '月' ? 'YYYY-MM' : 'YYYY'))
+    }, [billList, getType])
 
     // 当前时间
-    const [currentDate, setCurrentDate] = useState(() => dayjs(new Date()).format(getType==='月'?'YYYY-MM':'YYYY'))
+    const [currentDate, setCurrentDate] = useState(() => dayjs(new Date()).format(getType === '月' ? 'YYYY-MM' : 'YYYY'))
 
     const [currentMonthList, setMonthList] = useState([])
     const monthResult = useMemo(() => {
@@ -44,7 +44,7 @@ const CommonCpn = ({ type }) => {
     // 点击时间确认按钮之后，把当前月的统计数据计算出来显示到页面中
     const onConfirm = (date) => {
         setDateSelectorVisible(false)
-        const formatDate = dayjs(date).format(getType==='月'?'YYYY-MM':'YYYY')
+        const formatDate = dayjs(date).format(getType === '月' ? 'YYYY-MM' : 'YYYY')
         setMonthList(monthGroup[formatDate])// 设置选择的月份的账单数据列表
         setCurrentDate(formatDate)
     }
@@ -52,11 +52,11 @@ const CommonCpn = ({ type }) => {
 
     // 在初始化的时候把当前月的统计数据显示出来
     useEffect(() => {
-        const nowDate = dayjs().format(getType==='月'?'YYYY-MM':'YYYY')
+        const nowDate = dayjs().format(getType === '月' ? 'YYYY-MM' : 'YYYY')
         if (monthGroup[nowDate]) {
             setMonthList(monthGroup[nowDate])
         }
-    }, [monthGroup,getType])
+    }, [monthGroup, getType])
 
     // 当前月按照日来做分组
     const dayGroup = useMemo(() => {
